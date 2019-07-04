@@ -54,10 +54,13 @@ switch (action) {
     break;
 
   case "spotify-this-song":
-    console.log(spotify);
       spotify.request("https://api.spotify.com/v1/search?q=" + name + "&type=track%2Calbum%2Cartist&limit=1")
       .then(function(data) {
-        console.log(data); 
+        
+        console.log(data.tracks.items[0].album.artists[0].name)
+        console.log(data.tracks.items[0].name)
+        console.log(data.tracks.items[0].preview_url) 
+        console.log(data.tracks.items[0].album.name);
       })
       .catch(function(err) {
         console.error('Error occurred: ' + err); 
