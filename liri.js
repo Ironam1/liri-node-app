@@ -12,7 +12,7 @@ var name = "";
 
 for (var i = 3; i < args.length; i++) {
   if (i > 3 && i < args.length) {
-    name = name + " " + args[i];
+    name = name + "+" + args[i];
   } else {
     name += args[i];
   }
@@ -21,6 +21,7 @@ for (var i = 3; i < args.length; i++) {
 
 switch (action) {
   case "concert-this":
+    
     axios
       .get(
         "https://rest.bandsintown.com/artists/" +
@@ -28,7 +29,7 @@ switch (action) {
           "/events?app_id=codingbootcamp&date=upcoming"
       )
       .then(function(resp) {
-        console.log(resp);
+        console.log(resp.data[i].venue.name + "\n" + resp.data[i].venue.city + ", " + resp.data[i].venue.region + "\n" + resp.data[i].datetime);
       })
       .catch(function(error) {
         if (error.response) {
@@ -53,15 +54,23 @@ switch (action) {
     break;
 
   case "spotify-this-song":
-      spotify
-      .search({ type: 'track', query: name}, function(err, data) {
-        if (err) {
-            console.log('Error occurred: ' + err);
-            return;
-        }
-        
-        console.log(data);
+    console.log(spotify);
+      spotify.request("https://api.spotify.com/v1/search?q=" + name + "&type=track%2Calbum%2Cartist&limit=1")
+      .then(function(data) {
+        console.log(data); 
+      })
+      .catch(function(err) {
+        console.error('Error occurred: ' + err); 
       });
+      // spotify
+      // .search({ type: 'track,album,artist', query: name, limit: 1}, function(err, data) {
+      //   if (err) {
+      //       console.log('Error occurred: ' + err);
+      //       return;
+      //   }
+        
+      //   console.log(data.tracks.items);
+      // });
     // spotify
     //   .search({
     //     type: "track",
