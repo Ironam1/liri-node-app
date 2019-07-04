@@ -10,4 +10,5 @@ I used axios, fs, spotify, and dotenv npms as well as the APIs for spotify, band
 The user should be able to input do-what-it-says and then the app will run text from a random.txt file. i am not yet able to complete this.
 I did make it so that data would be stored to the log.txt but i did not set the correct values. 
 Not an excuse, but i was on vacation last week and got a late start on this assignment.
+I have included screenshots of the working command prompts with their outcomes. They are titled appropriately.
 I was lead developer.
