@@ -12,3 +12,5 @@ I did make it so that data would be stored to the log.txt but i did not set the 
 Not an excuse, but i was on vacation last week and got a late start on this assignment.
 I have included screenshots of the working command prompts with their outcomes. They are titled appropriately.
 I was lead developer.
+
+I fixed the number of concert dates that appear and i also fixed the data being sent to the log.txt file. I did this after the assignment was due but it was bugging me.
