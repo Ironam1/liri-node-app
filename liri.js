@@ -21,7 +21,6 @@ for (var i = 3; i < args.length; i++) {
 
 switch (action) {
   case "concert-this":
-    
     axios
       .get(
         "https://rest.bandsintown.com/artists/" +
@@ -29,7 +28,15 @@ switch (action) {
           "/events?app_id=codingbootcamp&date=upcoming"
       )
       .then(function(resp) {
-        console.log(resp.data[i].venue.name + "\n" + resp.data[i].venue.city + ", " + resp.data[i].venue.region + "\n" + resp.data[i].datetime);
+        console.log(
+          resp.data[i].venue.name +
+            "\n" +
+            resp.data[i].venue.city +
+            ", " +
+            resp.data[i].venue.region +
+            "\n" +
+            resp.data[i].datetime
+        );
       })
       .catch(function(error) {
         if (error.response) {
@@ -54,54 +61,22 @@ switch (action) {
     break;
 
   case "spotify-this-song":
-      spotify.request("https://api.spotify.com/v1/search?q=" + name + "&type=track%2Calbum%2Cartist&limit=1")
+    spotify
+      .request(
+        "https://api.spotify.com/v1/search?q=" +
+          name +
+          "&type=track%2Calbum%2Cartist&limit=1"
+      )
       .then(function(data) {
-        
-        console.log(data.tracks.items[0].album.artists[0].name)
-        console.log(data.tracks.items[0].name)
-        console.log(data.tracks.items[0].preview_url) 
+        console.log(data.tracks.items[0].album.artists[0].name);
+        console.log(data.tracks.items[0].name);
+        console.log(data.tracks.items[0].preview_url);
         console.log(data.tracks.items[0].album.name);
       })
       .catch(function(err) {
-        console.error('Error occurred: ' + err); 
+        console.error("Error occurred: " + err);
       });
-      // spotify
-      // .search({ type: 'track,album,artist', query: name, limit: 1}, function(err, data) {
-      //   if (err) {
-      //       console.log('Error occurred: ' + err);
-      //       return;
-      //   }
-        
-      //   console.log(data.tracks.items);
-      // });
-    // spotify
-    //   .search({
-    //     type: "track",
-    //     query: name
-    //   })
-    //   .then(function(resp) {
-    //     console.log(resp);
-    //   })
-    //   .catch(function(error) {
-    //     if (error.response) {
-    //       // The request was made and the server responded with a status code
-    //       // that falls out of the range of 2xx
-    //       console.log("---------------Data---------------");
-    //       console.log(error.response.data);
-    //       console.log("---------------Status---------------");
-    //       console.log(error.response.status);
-    //       console.log("---------------Status---------------");
-    //       console.log(error.response.headers);
-    //     } else if (error.request) {
-    //       // The request was made but no response was received
-    //       // `error.request` is an object that comes back with details pertaining to the error that occurred.
-    //       console.log(error.request);
-    //     } else {
-    //       // Something happened in setting up the request that triggered an Error
-    //       console.log("Error", error.message);
-    //     }
-    //     console.log(error.config);
-    //   });
+
     break;
 
   case "movie-this":
