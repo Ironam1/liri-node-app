@@ -1,5 +1,7 @@
 # liri-node-app
 
+I had received instructions on how to fix part of my broken code. While attempting to resolve those issues, I broke the entire application. It is not functional at the moment. 
+
 This application should fullfill a variety of search criteria. 
 Based on keywords, the user will be able to search for a song, concert dates, or movie information.
 If the user prompts "spotify-this-song", they will recieve the title, artist, the album the song is from and a link to listen to the song on spotify. If the user chooses nothing, "The Sign" by Ace of Base will return.
