@@ -21,7 +21,7 @@
     "node-spotify-api": "^1.1.1",
     "omdb-client": "^2.0.0",
     "lodash.template": "4.5.0",
-    "lodash": "4.17.13"
+    "lodash": "4.17.19"
   },
   "bugs": {
     "url": "https://github.com/Ironam1/liri-node-app/issues"
